@@ -1,0 +1,21 @@
+ktor:
+  application:
+    modules:
+      - com.lilac.kas.ApplicationKt.module
+  deployment:
+    port: ${PORT}
+  development: ${DEVELOPMENT}
+  domain: ${DOMAIN}
+
+auth:
+  url: "https://identity-lilac.sanalab.live"
+  realm: "Lilac Kas"
+  clientId: "kas-client"
+  issuer: "lilac-identity"
+  publicKeyPath: ${PUBLIC_KEY_PATH}
+
+postgres:
+  url: ${DATABASE_URL}
+  username: ${DATABASE_USER}
+  password: ${DATABASE_PASSWORD}
+  maximumPoolSize: 10
