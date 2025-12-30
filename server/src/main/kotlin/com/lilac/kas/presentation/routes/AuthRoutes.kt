@@ -2,6 +2,7 @@ package com.lilac.kas.presentation.routes
 
 import com.lilac.kas.config.AuthConfig
 import com.lilac.kas.request.LoginRequest
+import com.lilac.kas.request.RefreshTokenRequest
 import com.lilac.kas.request.RegisterRequest
 import com.lilac.kas.response.ErrorResponse
 import com.lilac.kas.response.TokenPairResponse
@@ -73,6 +74,25 @@ fun Route.authRoutes() {
         post("/login") {
             val payload = call.receive<LoginRequest>()
             val response = identityClient.post("${authConfig.url}/api/auth/login") {
+                setBody(payload)
+            }
+
+            if(response.status.isSuccess()) {
+                call.respond(
+                    response.status,
+                    response.body<TokenPairResponse>()
+                )
+            } else {
+                call.respond(
+                    response.status,
+                    response.body<ErrorResponse>()
+                )
+            }
+        }
+
+        post("/refresh") {
+            val payload = call.receive<RefreshTokenRequest>()
+            val response = identityClient.post("${authConfig.url}/api/auth/refresh") {
                 setBody(payload)
             }
 
