@@ -33,7 +33,7 @@ fun App() {
 
             NavHost(
                 navController = navController,
-                startDestination = if(auth.getTokens().first == null) Screen.SignIn else Screen.Home
+                startDestination = if(auth.user == null) Screen.SignIn else Screen.Home
 //                startDestination = Screen.SignIn
             ) {
                 composable<Screen.SignIn> {
