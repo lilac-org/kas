@@ -67,6 +67,16 @@ kotlin {
             implementation(libs.multiplatform.settings.no.arg)
             implementation(libs.multiplatform.settings.serialization)
 
+            implementation(libs.filekit.core)
+            implementation(libs.filekit.dialogs.compose)
+            implementation(libs.filekit.coil)
+
+            implementation(libs.client.core)
+            implementation(libs.client.cio)
+            implementation(libs.client.content.negotiation)
+            implementation(libs.client.logging)
+            implementation(libs.serialization.json)
+
             implementation(projects.shared)
         }
         commonTest.dependencies {
@@ -75,6 +85,9 @@ kotlin {
         jvmMain.dependencies {
             implementation(compose.desktop.currentOs)
             implementation(libs.kotlinx.coroutinesSwing)
+        }
+        webMain.dependencies {
+            implementation(libs.client.js)
         }
     }
 }
