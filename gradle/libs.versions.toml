@@ -18,6 +18,7 @@ materialIcons = "1.7.3"
 material3 = "1.11.0-alpha01"
 kotlinxSerializationCore = "1.9.0"
 koinBom = "4.2.0-beta2"
+filekit = "0.12.0"
 
 kotlin = "2.2.20"
 kotlinx-coroutines = "1.10.2"
@@ -67,6 +68,10 @@ koin-compose-viewmodel = { module = "io.insert-koin:koin-compose-viewmodel", ver
 koin-navigation3 = { module = "io.insert-koin:koin-compose-navigation3", version.ref = "koin" }
 kotlinx-coroutines-core = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "kotlinx-coroutines"}
 
+filekit-core = { module = "io.github.vinceglb:filekit-core", version.ref = "filekit" }
+filekit-dialogs-compose = { module = "io.github.vinceglb:filekit-dialogs-compose", version.ref = "filekit" }
+filekit-coil = { module = "io.github.vinceglb:filekit-coil", version.ref = "filekit" }
+
 # Server
 ## Main
 server-cors = { module = "io.ktor:ktor-server-cors", version.ref = "ktor" }
@@ -99,6 +104,8 @@ bcrypt = { module = "org.mindrot:jbcrypt", version.ref = "bcrypt" }
 jakarta-mail = { module = "com.sun.mail:jakarta.mail", version.ref = "jakarta" }
 client-content-negotiation = { module = "io.ktor:ktor-client-content-negotiation", version.ref = "ktor" }
 client-cio = { module = "io.ktor:ktor-client-cio", version.ref = "ktor" }
+client-js = { module = "io.ktor:ktor-client-js", version.ref = "ktor" }
+client-logging = { module = "io.ktor:ktor-client-logging", version.ref = "ktor" }
 client-core = { module = "io.ktor:ktor-client-core", version.ref = "ktor" }
 
 server-test-host = { module = "io.ktor:ktor-server-test-host", version.ref = "ktor" }

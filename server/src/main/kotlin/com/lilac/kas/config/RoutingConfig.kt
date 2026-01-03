@@ -1,7 +1,7 @@
 package com.lilac.kas.config
 
 import com.lilac.kas.config.AppConstant.JWT_NAME
-import com.lilac.kas.presentation.routes.authRoutes
+import com.lilac.kas.presentation.routes.identityRoutes
 import com.lilac.kas.response.HelloResponse
 import io.ktor.http.HttpStatusCode
 import io.ktor.server.application.Application
@@ -27,10 +27,12 @@ fun Application.configureRouting() {
                     HelloResponse()
                 )
             }
-            authRoutes()
+            identityRoutes()
 
             authenticate(JWT_NAME) {
-
+                get("/test-auth") {
+                    call.respond(HttpStatusCode.OK, "Hello World!")
+                }
             }
         }
     }

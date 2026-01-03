@@ -18,7 +18,6 @@ fun Application.configureSecurity() {
             verifier(
                 JWT
                     .require(jwt.algorithm)
-                    .withAudience(jwt.clientId)
                     .withIssuer(jwt.issuer)
                     .build()
             )
