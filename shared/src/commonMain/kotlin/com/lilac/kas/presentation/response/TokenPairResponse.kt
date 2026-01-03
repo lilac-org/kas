@@ -1,6 +1,6 @@
-package com.lilac.kas.response
+package com.lilac.kas.presentation.response
 
-import com.lilac.kas.dto.TokenPairDto
+import com.lilac.kas.presentation.dto.TokenPairDto
 import kotlinx.serialization.Serializable
 
 @Serializable

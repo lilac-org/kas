@@ -2,13 +2,13 @@ package com.lilac.kas.presentation.routes
 
 import com.lilac.kas.config.AppConstant.JWT_NAME
 import com.lilac.kas.config.AuthConfig
-import com.lilac.kas.request.LoginRequest
-import com.lilac.kas.request.RefreshTokenRequest
-import com.lilac.kas.request.RegisterRequest
-import com.lilac.kas.response.ErrorResponse
-import com.lilac.kas.response.TokenPairResponse
-import com.lilac.kas.response.UserDetailResponse
-import com.lilac.kas.response.UserPublicDetailResponse
+import com.lilac.kas.presentation.request.LoginRequest
+import com.lilac.kas.presentation.request.RefreshTokenRequest
+import com.lilac.kas.presentation.request.RegisterRequest
+import com.lilac.kas.presentation.response.ErrorResponse
+import com.lilac.kas.presentation.response.TokenPairResponse
+import com.lilac.kas.presentation.response.UserDetailResponse
+import com.lilac.kas.presentation.response.UserPublicDetailResponse
 import io.ktor.client.HttpClient
 import io.ktor.client.call.body
 import io.ktor.client.engine.cio.CIO

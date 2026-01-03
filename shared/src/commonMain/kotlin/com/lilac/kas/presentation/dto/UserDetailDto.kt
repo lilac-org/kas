@@ -1,15 +1,16 @@
-package com.lilac.kas.dto
+package com.lilac.kas.presentation.dto
 
 import kotlinx.serialization.Serializable
 
 @Serializable
-data class UserDto(
+data class UserDetailDto(
     val id: String,
     val email: String,
     val username: String,
     val firstName: String,
     val lastName: String,
-    val profileImageUrl: String?,
+    val isEmailVerified: Boolean,
     val createdAt: Long,
-    val updatedAt: Long
+    val updatedAt: Long,
+    val profile: UserProfileDto?
 )

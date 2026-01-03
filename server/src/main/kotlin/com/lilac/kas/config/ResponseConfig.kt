@@ -1,6 +1,6 @@
 package com.lilac.kas.config
 
-import com.lilac.kas.response.ErrorResponse
+import com.lilac.kas.presentation.response.ErrorResponse
 import io.ktor.http.HttpStatusCode
 import io.ktor.server.application.Application
 import io.ktor.server.application.install

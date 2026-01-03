@@ -2,7 +2,7 @@ package com.lilac.kas.config
 
 import com.lilac.kas.config.AppConstant.JWT_NAME
 import com.lilac.kas.presentation.routes.identityRoutes
-import com.lilac.kas.response.HelloResponse
+import com.lilac.kas.presentation.response.HelloResponse
 import io.ktor.http.HttpStatusCode
 import io.ktor.server.application.Application
 import io.ktor.server.auth.authenticate

@@ -1,6 +1,6 @@
-package com.lilac.kas.response
+package com.lilac.kas.presentation.response
 
-import com.lilac.kas.dto.UserDetailDto
+import com.lilac.kas.presentation.dto.UserDetailDto
 import kotlinx.serialization.Serializable
 
 @Serializable

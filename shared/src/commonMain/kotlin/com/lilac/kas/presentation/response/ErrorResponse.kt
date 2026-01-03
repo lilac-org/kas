@@ -1,4 +1,4 @@
-package com.lilac.kas.response
+package com.lilac.kas.presentation.response
 
 import kotlinx.serialization.Serializable
 

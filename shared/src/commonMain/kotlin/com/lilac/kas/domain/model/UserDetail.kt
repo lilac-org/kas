@@ -1,9 +1,6 @@
-package com.lilac.kas.dto
+package com.lilac.kas.domain.model
 
-import kotlinx.serialization.Serializable
-
-@Serializable
-data class UserDetailDto(
+data class UserDetail(
     val id: String,
     val email: String,
     val username: String,
@@ -12,5 +9,5 @@ data class UserDetailDto(
     val isEmailVerified: Boolean,
     val createdAt: Long,
     val updatedAt: Long,
-    val profile: UserProfileDto?
+    val profile: UserProfile?
 )

@@ -16,11 +16,15 @@ class AuthUseCase(
             password = password
         )
             .onSuccess { tokenPair ->
-                authDataStoreManager.saveTokens(
-                    accessToken = tokenPair.accessToken,
-                    refreshToken = tokenPair.refreshToken
-                )
-            }.map { Unit }
+                authRepository.getUserDetail()
+                    .onSuccess { userDetail ->
+                        authDataStoreManager.saveAuth(
+                            accessToken = tokenPair.accessToken,
+                            refreshToken = tokenPair.refreshToken,
+                            user = userDetail
+                        )
+                    }
+            }.map { }
     } catch (e: Exception) {
         Result.failure(e)
     }
@@ -45,7 +49,7 @@ class AuthUseCase(
                     refreshToken = tokenPair.refreshToken
                 )
             }
-            .map { Unit }
+            .map { }
     } catch (e: Exception) {
         Result.failure(e)
     }
@@ -55,7 +59,7 @@ class AuthUseCase(
             .onSuccess {
                 authDataStoreManager.clearDataStore()
             }
-            .map { Unit }
+            .map { }
     } catch (e: Exception) {
         Result.failure(e)
     }

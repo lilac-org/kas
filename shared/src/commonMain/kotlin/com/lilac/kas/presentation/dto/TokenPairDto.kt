@@ -1,4 +1,4 @@
-package com.lilac.kas.dto
+package com.lilac.kas.presentation.dto
 
 import kotlinx.serialization.Serializable
 

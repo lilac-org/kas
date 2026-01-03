@@ -2,13 +2,17 @@ package com.lilac.kas.data.repository
 
 import com.lilac.kas.data.Constant.BACKEND_BASE_URL
 import com.lilac.kas.domain.model.TokenPair
+import com.lilac.kas.domain.model.UserDetail
 import com.lilac.kas.domain.repository.AuthRepository
-import com.lilac.kas.request.LoginRequest
-import com.lilac.kas.request.RegisterRequest
-import com.lilac.kas.response.ErrorResponse
-import com.lilac.kas.response.TokenPairResponse
+import com.lilac.kas.presentation.mapper.toDomain
+import com.lilac.kas.presentation.request.LoginRequest
+import com.lilac.kas.presentation.request.RegisterRequest
+import com.lilac.kas.presentation.response.ErrorResponse
+import com.lilac.kas.presentation.response.TokenPairResponse
+import com.lilac.kas.presentation.response.UserDetailResponse
 import io.ktor.client.HttpClient
 import io.ktor.client.call.body
+import io.ktor.client.request.get
 import io.ktor.client.request.post
 import io.ktor.client.request.setBody
 import io.ktor.http.isSuccess
@@ -85,5 +89,20 @@ class AuthRepositoryImpl(
     override suspend fun logout(): Result<Unit> {
         println("Logout and does nothing to backend")
         return Result.success(Unit)
+    }
+
+    override suspend fun getUserDetail(): Result<UserDetail> = try {
+        val response = httpClient.get("$BACKEND_BASE_URL/users/me")
+
+        if(response.status.isSuccess()) {
+            val body = response.body<UserDetailResponse>()
+            Result.success(body.data.toDomain())
+        } else {
+            val body = response.body<ErrorResponse>()
+
+            Result.failure(Exception(body.message ?: "Failed to get user detail"))
+        }
+    } catch (e: Exception) {
+        Result.failure(e)
     }
 }

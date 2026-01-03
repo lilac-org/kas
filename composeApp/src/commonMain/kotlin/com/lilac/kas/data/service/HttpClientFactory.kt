@@ -3,8 +3,8 @@ package com.lilac.kas.data.service
 import com.lilac.kas.data.Constant.BACKEND_BASE_URL
 import com.lilac.kas.domain.model.TokenPair
 import com.lilac.kas.domain.service.AuthDataStoreManager
-import com.lilac.kas.request.RefreshTokenRequest
-import com.lilac.kas.response.TokenPairResponse
+import com.lilac.kas.presentation.request.RefreshTokenRequest
+import com.lilac.kas.presentation.response.TokenPairResponse
 import io.ktor.client.HttpClient
 import io.ktor.client.call.body
 import io.ktor.client.engine.HttpClientEngine
