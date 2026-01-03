@@ -16,13 +16,18 @@ class AuthUseCase(
             password = password
         )
             .onSuccess { tokenPair ->
+                authDataStoreManager.saveTokens(
+                    accessToken = tokenPair.accessToken,
+                    refreshToken = tokenPair.refreshToken
+                )
+
                 authRepository.getUserDetail()
                     .onSuccess { userDetail ->
-                        authDataStoreManager.saveAuth(
-                            accessToken = tokenPair.accessToken,
-                            refreshToken = tokenPair.refreshToken,
+                        authDataStoreManager.saveUser(
                             user = userDetail
                         )
+                    }.onFailure {
+                        authDataStoreManager.clearDataStore()
                     }
             }.map { }
     } catch (e: Exception) {

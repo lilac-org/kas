@@ -24,10 +24,10 @@ class AuthDataStoreManagerImpl(
         settings.putBoolean("isEmailVerified", user.isEmailVerified)
         settings.putLong("createdAt", user.createdAt)
         settings.putLong("updatedAt", user.updatedAt)
-        settings.putString("bio", user.profile?.bio ?: "")
-        settings.putString("profilePictureUrl", user.profile?.profilePictureUrl ?: "")
-        settings.putString("coverPictureUrl", user.profile?.coverPictureUrl ?: "")
-        settings.putLong("profileUpdatedAt", user.profile?.updatedAt ?: 0L)
+        user.profile?.bio?.let { settings.putString("bio", it) }
+        user.profile?.profilePictureUrl?.let { settings.putString("profilePictureUrl", it) }
+        user.profile?.coverPictureUrl?.let { settings.putString("coverPictureUrl", it) }
+        user.profile?.updatedAt?.let { settings.putLong("profileUpdatedAt", it) }
     }
 
     override suspend fun saveAuth(accessToken: String, refreshToken: String, user: UserDetail) {
